@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Lato;
+}
+
+header {
+    background-color: #5a71bb;
+    text-align: center;
+    color: white;
+    padding: 20px 0;
+}
+
+body {
+    background-color: rgb(71, 71, 71);
+}
+
+.jogo {
+    color: white;
+    margin-top: 8px;
+}
+
+.player-options img,
+.enemy-options img {
+    max-width: 200px;
+    max-height: 200px;
+    opacity: 0.1;
+    cursor: pointer;
+}
+
+img.selected {
+    opacity: 1;
+}
+
+.player-options img:hover {
+    opacity: 1;
+    transition: all .5s ease-in-out;
+}
+
+.placar {
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+
+.placar > h3 {
+    flex: 0.333;
+}
+
+.enemy-options img {
+    cursor: default;
+}
+
+.player-options, .enemy-options {
+    width: 50%;
+    text-align: center;
+}
+
+.align {
+    display: flex;
+}
+
+.reiniciar {
+    text-align: center;
+}
+
+.reiniciar button {
+    font-size: 16px;
+    margin: 5px;
+    border: 0;
+    width: 120px;
+    height: 40px;
+    color: white;
+    cursor: pointer;
+    background-color: #5a71bb;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #5a71bb;
+    color: white;
+}
+
+.material-icons.md-light {
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 25px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+}
+
+@media screen and (max-width: 400px) {
+    .player-options img,
+    .enemy-options img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
+
+@media screen and (max-height: 900px) {
+    .player-options img,
+    .enemy-options img {
+        max-width: 180px;
+        max-height: 180px;
+    }
+}
+
+@media screen and (max-height: 800px) {
+    .player-options img,
+    .enemy-options img {
+        max-width: 150px;
+        max-height: 150px;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    .player-options img,
+    .enemy-options img {
+        max-width: 120px;
+        max-height: 120px;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .player-options img,
+    .enemy-options img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
+
+.blink {
+    animation: blink-animation 0.5s steps(5, start) 3;
+}
+
+@keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+}

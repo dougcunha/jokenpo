@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Jokenpô</title>
+</head>
+
+<body>
+    <header>
+        <h1>Jokenpô!<span class="material-icons md-light">casino</span></h1>
+        <h2 class="vencedor">Escolha a sua jogada.</h2>
+    </header>
+    <div class="align">
+        <div class="player-options">
+            <h3 class="jogo">Você</h3>
+            <div><img opt="pedra" src="images/rock.png" /></div>
+            <div><img opt="papel" src="images/paper.png" /></div>
+            <div><img opt="tesoura" src="images/scissor.png" /></div>
+        </div>
+
+        <div class="enemy-options">
+            <h3 class="jogo">Computador</h3>
+            <div><img opt="pedra" src="images/rock.png" /></div>
+            <div><img opt="papel" src="images/paper.png" /></div>
+            <div><img opt="tesoura" src="images/scissor.png" /></div>
+        </div>
+    </div>
+    <div class="reiniciar">
+        <button type="button" onclick="reiniciarTudo()">Reiniciar</button>
+    </div>
+    <div class="placar">
+        <h3 class="ganhou">Vitórias: <span id="ganhou">0</span></h3>
+        <h3 class="empatou">Empates: <span id="empatou">0</span></h3>
+        <h3 class="perdeu">Derrotas: <span id="perdeu">0</span></h3>
+    </div>
+    <script src="script/script.js"></script>
+    <footer>Teste sua sorte contra o computador no famoso jogo de pedra, papel e tessoura!</footer>
+</body>
+
+</html>
