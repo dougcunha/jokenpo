@@ -4,7 +4,7 @@
 document.querySelectorAll('.player-options > div > img').forEach(el => {
     el.opacity = 0.2;
     el.addEventListener('click', t => {
-        reiniciarJogada();
+        reiniciarTabuleiro();
         t.target.className = 'selected';
         inimigoJogar();
     })
@@ -13,17 +13,17 @@ document.querySelectorAll('.player-options > div > img').forEach(el => {
 /*
     Reinicia o "tabuleiro" para a próxima jogada, sem zerar o contador geral.
  */
-const reiniciarJogada = () => {
+const reiniciarTabuleiro = () => {
     document.querySelectorAll('.selected').forEach(e => e.removeAttribute('class'));
-    document.querySelector('.vencedor').innerHTML = 'Escolha a sua jogada.';
+    document.querySelector('.vencedor').textContent = 'Escolha a sua jogada.';
 };
 
 /*
     Reinicia o "tabuleiro" e zera o contador geral.
  */
 const reiniciarTudo = () => {
-    reiniciarJogada();
-    document.querySelectorAll('.placar > h3 > span').forEach(e => e.innerHTML = 0);
+    reiniciarTabuleiro();
+    document.querySelectorAll('.placar > h3 > span').forEach(e => e.textContent = 0);
 }
 
 /*
@@ -39,19 +39,20 @@ const atualizarPlacar = resultado => {
     const vencedor = document.querySelector('.vencedor');
     const qtd = document.getElementById(resultado);
     document.querySelector('.' + resultado).classList.add('blink');
-    qtd.innerHTML = parseInt(qtd.innerHTML) + 1;
+    qtd.textContent = parseInt(qtd.firstChild.nodeValue) + 1;
     vencedor.innerHTML = MSG[resultado];
 
     setTimeout(() => {
         document.querySelectorAll('.placar > h3').forEach(e => e.classList.remove('blink'));
-        vencedor.innerHTML = 'Escolha sua jogada.'
+        vencedor.textContent = 'Escolha sua jogada.'
     }, 1500);
 }
 
 /*
     Verifica quem ganhou a jogada e manda atualizar o placar.
 */
-const validarVitoria = inimigoJogada => {
+const verificarVencedor = inimigoJogada => {
+    //Evito o uso de ifs para verificar quem ganhou a jogada.
     const MAPA = {
         pedra: {
             tesoura: 'ganhou',
@@ -79,19 +80,19 @@ const validarVitoria = inimigoJogada => {
  */
 const inimigoJogar = () => {
     const jogada = Math.floor(Math.random() * 3);
-    const enemyOptions = document.querySelectorAll('.enemy-options > div > img');
-    const inimigoJogada = enemyOptions[jogada].getAttribute('opt');
-    executarAnimacao(enemyOptions, jogada);
+    const inimigoOpcoes = document.querySelectorAll('.enemy-options > div > img');
+    const inimigoJogada = inimigoOpcoes[jogada].getAttribute('opt');
+    executarJogadaComAnimacao(inimigoOpcoes, jogada);
 
     setTimeout(() => {
-        validarVitoria(inimigoJogada);
+        verificarVencedor(inimigoJogada);
     }, 800);
 }
 
 /*
   Atualiza a jogada do inimigo na página, com animação.
  */
-const executarAnimacao = (enemyOptions, jogada) => {
+const executarJogadaComAnimacao = (enemyOptions, jogada) => {
     enemyOptions.forEach(e => e.className = 'selected');
 
     Array.from(enemyOptions)
